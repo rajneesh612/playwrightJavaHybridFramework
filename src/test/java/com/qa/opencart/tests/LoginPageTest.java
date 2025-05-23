@@ -7,7 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class LoginPageTest extends BaseTest {
-    @Test
+    @Test(priority = 3)
     public void loginValidUser(){
         loginPage = homePage.navigateToLoginPage();
 
@@ -16,7 +16,7 @@ public class LoginPageTest extends BaseTest {
         Assert.assertEquals(actualTitle, "My Account");
     }
 
-    @Test
+    @Test(priority = 2)
     public void loginInValidUser(){
         loginPage = homePage.navigateToLoginPage();
 
@@ -24,6 +24,16 @@ public class LoginPageTest extends BaseTest {
         String actualMsg = loginPage.getInvalidUserNameOrPasswordWarningMsg();
         Assert.assertEquals(actualMsg, " Warning: No match for E-Mail Address and/or Password.");
     }
+
+    @Test(priority = 1)
+    public void loginInValidPassword(){
+        loginPage = homePage.navigateToLoginPage();
+
+        loginPage.do_login(prop.getProperty("userEmail"), prop.getProperty("invalidUserPassword"));
+        String actualMsg = loginPage.getInvalidUserNameOrPasswordWarningMsg();
+        Assert.assertEquals(actualMsg, " Warning: No match for E-Mail Address and/or Password.");
+    }
+
 
 
 }

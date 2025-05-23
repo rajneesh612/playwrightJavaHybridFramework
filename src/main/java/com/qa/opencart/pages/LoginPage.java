@@ -33,8 +33,9 @@ public class LoginPage {
         page.click(loginBtn);
     }
 
-    public void do_login(String email, String passwd){
+    public AccountPage do_login(String email, String passwd){
        new LoginPage(page).enterEmail(email).enterPassword(passwd).clickOnLogingBtn();
+       return new AccountPage(this.page);
     }
 
     public String getPageTitle(){
