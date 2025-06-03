@@ -27,6 +27,20 @@ public class ExtendReport {
             extent.setSystemInfo("Host Name", "LocalHost");
             extent.setSystemInfo("Environment", "QA");
             extent.setSystemInfo("User", "Your Name");
+
+            htmlReporter.config().setTheme(Theme.DARK);
+            htmlReporter.config().setDocumentTitle("Playwright Automation Report");
+            htmlReporter.config().setReportName("Regression Suite");
+            htmlReporter.config().setTimeStampFormat("EEEE, MMMM dd, yyyy, hh:mm a '('zzz')'");
+            htmlReporter.config().setCss(".badge-primary { background-color: #5c7cff; }");
+            htmlReporter.config().setJs("document.getElementsByClassName('logo')[0].style.display='none';");
+            extent.setSystemInfo("OS", System.getProperty("os.name"));
+            extent.setSystemInfo("Java Version", System.getProperty("java.version"));
+            extent.setSystemInfo("Playwright Version", "1.42.0");
+            extent.setSystemInfo("Test Environment", "Staging");
+            htmlReporter.config().setTimelineEnabled(true);
+            htmlReporter.config().thumbnailForBase64(true);
+            htmlReporter.config().setEncoding("utf-8");
         }
         return extent;
     }

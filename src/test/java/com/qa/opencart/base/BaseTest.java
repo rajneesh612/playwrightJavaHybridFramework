@@ -4,6 +4,7 @@ import com.microsoft.playwright.Page;
 import com.qa.ExtendReportListner.ExtendReport;
 import com.qa.opencart.factory.PlaywrightFactory;
 import com.qa.opencart.pages.AccountPage;
+import com.qa.opencart.pages.CheckoutPage;
 import com.qa.opencart.pages.HomePage;
 import com.qa.opencart.pages.LoginPage;
 import com.qa.util.ScreenshotUtil;
@@ -22,6 +23,7 @@ public class BaseTest {
     protected Properties prop;
     protected LoginPage loginPage;
     protected AccountPage accountPage;
+    protected CheckoutPage checkoutPage;
     @BeforeTest
     public void setup(){
         pf = new PlaywrightFactory();

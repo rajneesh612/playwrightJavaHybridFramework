@@ -10,6 +10,8 @@ public class HomePage {
     private String searchPageHeader = "div#content h1";
     private String myAccountBtn = "(//span[normalize-space()='My Account'])[1]";
     private String loginLink = "(//a[text()='Login'])[1]";
+    private String addToCart = "//span[normalize-space()='Add to Cart']";
+    private String checkoutBtn = "//a[@title='Checkout']";
 
     // Page constructor
     public HomePage(Page page){
@@ -34,10 +36,30 @@ public class HomePage {
         return page.textContent(searchPageHeader);
     }
 
+
+
     public LoginPage navigateToLoginPage(){
         page.click(myAccountBtn);
         page.click(loginLink);
         return  new LoginPage(this.page);
     }
+
+    public HomePage clickAddToCartAProduct(){
+        this.page.click(addToCart);
+        return this;
+    }
+
+    public void addToCartProduct(String productName){
+        page.fill(search,productName);
+        page.click(serachIcon);
+        page.click(addToCart);
+    }
+
+    public CheckoutPage clickOnTheCheckoutBtn(){
+        page.click(checkoutBtn);
+        return new CheckoutPage(this.page);
+    }
+
+
 
 }
