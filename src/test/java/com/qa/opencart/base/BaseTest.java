@@ -3,10 +3,7 @@ package com.qa.opencart.base;
 import com.microsoft.playwright.Page;
 import com.qa.ExtendReportListner.ExtendReport;
 import com.qa.opencart.factory.PlaywrightFactory;
-import com.qa.opencart.pages.AccountPage;
-import com.qa.opencart.pages.CheckoutPage;
-import com.qa.opencart.pages.HomePage;
-import com.qa.opencart.pages.LoginPage;
+import com.qa.opencart.pages.*;
 import com.qa.util.ScreenshotUtil;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -24,6 +21,9 @@ public class BaseTest {
     protected LoginPage loginPage;
     protected AccountPage accountPage;
     protected CheckoutPage checkoutPage;
+    protected CartPage cartPage;
+
+
     @BeforeTest
     public void setup(){
         pf = new PlaywrightFactory();

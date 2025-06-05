@@ -9,7 +9,10 @@ public class AccountPage {
     private String lastname = "#input-lastname";
     private String continumeBtn = "//input[@value='Continue']";
     private String successMsg = "//div[contains(text(),'Success: Your account has been successfully update')]";
-
+    private String viewOrderHistory = "//a[normalize-space()='View your order history']";
+    private String orderHistoryPageHeading = "//h1[normalize-space()='Order History']";
+    private String search = "//input[@placeholder='Search']";
+    private String serachIcon = "div#search button";
     // Page constructor
     public AccountPage(Page page){
         this.page = page;
@@ -40,6 +43,20 @@ public class AccountPage {
 
     public String getSuccessMsg(){
         return page.textContent(successMsg);
+    }
+
+    public void clickOnViewOrderHistory(){
+        page.click(viewOrderHistory);
+    }
+
+    public String getOrderHistoryPageText(){
+        return page.textContent(orderHistoryPageHeading);
+    }
+
+    public CheckoutPage product_search(String productName){
+        page.fill(search,productName);
+        page.click(serachIcon);
+        return new CheckoutPage(this.page);
     }
 
 }

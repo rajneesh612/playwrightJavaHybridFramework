@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 public class AccountPageTest extends BaseTest {
 
-    @Test
+    @Test (priority = 0)
     public void editYourAccount(){
         ExtentTest test = ExtendReport.createTest("Account Page Test", "Edit account info");
         test.assignCategory("Account");
@@ -28,6 +28,27 @@ public class AccountPageTest extends BaseTest {
             String actualMsg = accountPage.getSuccessMsg();
             Assert.assertEquals(actualMsg, " Success: Your account has been successfully updated.");
             ReportLogger.logInfo("Test passed");
+        } catch (Exception e) {
+            ReportLogger.logInfo("Test Failed : "+e.getMessage());
+            throw new RuntimeException(e);
+        }
+
+    }
+
+
+    @Test(priority = 1)
+    public void viewOrderHistory(){
+
+        ExtentTest test = ExtendReport.createTest("Account Page Test", "View Order history");
+        test.assignCategory("Account");
+        test.assignAuthor("Rajneesh");
+
+        try {
+
+            ReportLogger.logInfo("Click on the view order history link.");
+            accountPage.clickOnViewOrderHistory();
+            Assert.assertEquals(accountPage.getOrderHistoryPageText(),"Order History");
+            ReportLogger.logInfo("Test Passed");
         } catch (Exception e) {
             ReportLogger.logInfo("Test Failed : "+e.getMessage());
             throw new RuntimeException(e);

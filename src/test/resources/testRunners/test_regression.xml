@@ -6,17 +6,23 @@
     <listeners>
         <listener class-name="com.qa.util.TestListener" />
     </listeners>
-    <test name="Open Cart Home Page Test_chrome">
+<!--    <test name="Open Cart Home Page Test chrome">-->
+<!--        <classes>-->
+<!--            <class name="com.qa.opencart.tests.HomePageTest" />-->
+<!--        </classes>-->
+<!--    </test>-->
 
-        <classes>
-            <class name="com.qa.opencart.tests.HomePageTest" />
-        </classes>
-    </test>
+<!--    <test name="Open Cart Login Page Test chrome">-->
+<!--        <parameter name="browser" value="chromium" />-->
+<!--        <classes>-->
+<!--            <class name="com.qa.opencart.tests.LoginPageTest" />-->
+<!--        </classes>-->
+<!--    </test>-->
 
-    <test name="Open Cart Login Page Test_safari">
+    <test name="Open Cart Account Page Test chrome">
         <parameter name="browser" value="chromium" />
         <classes>
-            <class name="com.qa.opencart.tests.LoginPageTest" />
+            <class name="com.qa.opencart.tests.AccountPageTest" />
         </classes>
     </test>
 </suite>
