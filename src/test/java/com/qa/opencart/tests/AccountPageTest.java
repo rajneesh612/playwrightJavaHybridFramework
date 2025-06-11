@@ -56,4 +56,25 @@ public class AccountPageTest extends BaseTest {
 
     }
 
+    @Test(priority = 2)
+    public void addNewAddress(){
+
+        ExtentTest test = ExtendReport.createTest("Account Page Test", "View Order history");
+        test.assignCategory("Account");
+        test.assignAuthor("Rajneesh");
+
+        try {
+
+            ReportLogger.logInfo("Click on the view order history link.");
+            accountPage.clickOnAddressBook();
+            accountPage.clickOnNewAddressBtn();
+            //Assert.assertEquals(accountPage.getOrderHistoryPageText(),"Order History");
+            ReportLogger.logInfo("Test Passed");
+        } catch (Exception e) {
+            ReportLogger.logInfo("Test Failed : "+e.getMessage());
+            throw new RuntimeException(e);
+        }
+
+    }
+
 }

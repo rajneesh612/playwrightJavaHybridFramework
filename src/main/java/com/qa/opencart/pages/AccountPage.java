@@ -13,6 +13,8 @@ public class AccountPage {
     private String orderHistoryPageHeading = "//h1[normalize-space()='Order History']";
     private String search = "//input[@placeholder='Search']";
     private String serachIcon = "div#search button";
+    private String addressBook = "//a[text()='Address Book']";
+    private String newAddressBtn = "//a[text()='New Address']";
     // Page constructor
     public AccountPage(Page page){
         this.page = page;
@@ -57,6 +59,14 @@ public class AccountPage {
         page.fill(search,productName);
         page.click(serachIcon);
         return new CheckoutPage(this.page);
+    }
+
+    public void clickOnAddressBook(){
+        page.locator(addressBook).click();
+    }
+
+    public void clickOnNewAddressBtn(){
+        page.click(newAddressBtn);
     }
 
 }
